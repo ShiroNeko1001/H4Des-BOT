@@ -1,53 +1,54 @@
-# Linux Server Bot
+# H4Des-BOT
 
-Bot untuk mengubah sistem Linux menjadi server yang dapat dikontrol secara remote dengan GUI.
+Bot untuk mengubah sistem Linux menjadi server yang dapat dikontrol secara remote dengan GUI Gnome.
 
-## Fitur
+![H4Des-BOT Logo](assets/images/logo.png)
 
-- SSH remote access dengan keamanan tinggi
-- VNC untuk GUI remote
-- Antarmuka web untuk kontrol
-- Keamanan terintegrasi (Firewall, Fail2ban)
-- Backup otomatis harian
-- Update otomatis
-- Dukungan multiple display
-- SSL/TLS support (Opsional)
+## 🚀 Fitur Utama
 
-## Persyaratan Sistem
+- 🔒 SSH remote access dengan keamanan tinggi
+- 🖥️ VNC untuk GUI remote dengan Gnome
+- 🌐 Antarmuka web untuk kontrol
+- 🔐 Keamanan terintegrasi (Firewall, Fail2ban)
+- 💾 Backup otomatis harian
+- 🔄 Update otomatis
+- 📊 Monitoring sistem real-time
+- 🛡️ SSL/TLS support
+
+## 📋 Persyaratan Sistem
 
 - Linux (Ubuntu/Debian)
 - Python 3.7+
 - Akses root/sudo
 - Koneksi internet
+- RAM minimal 2GB
+- Storage minimal 10GB
 
-## Instalasi Otomatis
+## 🛠️ Instalasi
 
-1. Clone repositori ini:
+1. Clone repositori:
 ```bash
-git clone https://github.com/yourusername/linux-server-bot.git
-cd linux-server-bot
+git clone https://github.com/ShiroNeko1001/H4Des-BOT.git
+cd H4Des-BOT
 ```
 
-2. Jalankan script setup sebagai root:
+2. Jalankan script instalasi:
 ```bash
 sudo ./scripts/setup.sh
 ```
 
-Script akan secara otomatis:
-- Menginstal semua dependensi yang diperlukan
-- Mengkonfigurasi SSH dengan keamanan tinggi
-- Mengatur firewall (UFW)
-- Mengkonfigurasi Fail2ban
-- Membuat virtual environment Python
-- Menginstal dependensi Python
-- Mengkonfigurasi VNC server
-- Membuat service systemd
-- Mengatur backup otomatis
-- Membuat script update otomatis
+3. Konfigurasi awal:
+```bash
+# Buat password VNC
+vncpasswd
 
-## Konfigurasi
+# Mulai VNC server
+vncserver :1 -geometry 1920x1080
+```
 
-Setelah instalasi, konfigurasi file `config/config.yaml`:
+## ⚙️ Konfigurasi
+
+Edit file `config/config.yaml`:
 ```yaml
 server:
   host: 0.0.0.0
@@ -61,50 +62,99 @@ vnc:
   password: your_vnc_password
 ```
 
-## Penggunaan
+## 💻 Penggunaan
 
-1. Bot akan berjalan otomatis sebagai service systemd
-2. Akses antarmuka web di: `http://localhost:5000`
-3. Untuk mengontrol server:
-   - Start/Stop server melalui antarmuka web
-   - Monitor status koneksi
-   - Akses VNC viewer
+1. Akses Web Interface:
+   - Buka: `http://localhost:5000`
+   - Atau: `http://[IP_SERVER]:5000`
 
-## Fitur Keamanan
+2. Akses VNC:
+   - Host: `[IP_SERVER]:1`
+   - Password: (password VNC yang dibuat)
+
+3. Monitoring Sistem:
+```bash
+./scripts/system_status.sh
+```
+
+## 🔒 Keamanan
 
 - SSH dengan autentikasi key
 - Firewall dengan UFW
 - Fail2ban untuk proteksi brute force
 - Backup otomatis harian
 - Update otomatis
-- Enkripsi SSL/TLS (opsional)
+- Enkripsi SSL/TLS
 
-## Maintenance
+## 📦 Struktur Proyek
 
-- Backup otomatis berjalan setiap hari jam 00:00
-- Untuk update manual: `./scripts/update.sh`
-- Logs tersimpan di direktori `logs/`
-- Backup tersimpan di direktori `backups/`
+```
+H4Des-BOT/
+├── src/                    # Source code utama
+├── scripts/               # Script instalasi dan maintenance
+├── config/                # File konfigurasi
+├── docs/                  # Dokumentasi
+├── assets/               # Gambar dan icon
+├── tests/                # Unit test
+├── logs/                 # Log file
+└── backups/              # Backup data
+```
 
-## Troubleshooting
+## 🔄 Maintenance
 
-1. Jika service gagal start:
+1. Update sistem:
+```bash
+./scripts/update.sh
+```
+
+2. Backup manual:
+```bash
+./scripts/backup.sh
+```
+
+3. Monitoring:
+```bash
+./scripts/system_status.sh
+```
+
+## 🐛 Troubleshooting
+
+1. Service gagal start:
 ```bash
 sudo systemctl status linux-server-bot
 sudo journalctl -u linux-server-bot
 ```
 
-2. Jika VNC tidak berfungsi:
+2. VNC bermasalah:
 ```bash
 vncserver -kill :1
 vncserver :1
 ```
 
-3. Untuk melihat logs:
+3. Lihat logs:
 ```bash
 tail -f logs/server.log
 ```
 
-## Lisensi
+## 🤝 Kontribusi
 
-MIT License 
+1. Fork repository
+2. Buat branch baru (`git checkout -b fitur-baru`)
+3. Commit perubahan (`git commit -am 'Menambahkan fitur baru'`)
+4. Push ke branch (`git push origin fitur-baru`)
+5. Buat Pull Request
+
+## 📝 Lisensi
+
+MIT License
+
+## 📞 Kontak
+
+- Email: shironeko1001@gmail.com
+- GitHub: [ShiroNeko1001](https://github.com/ShiroNeko1001)
+
+---
+
+<div align="center">
+  <sub>Dibuat dengan ❤️ oleh ShiroNeko1001</sub>
+</div> 
