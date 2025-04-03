@@ -1,0 +1,7 @@
+flask==2.0.1
+flask-socketio==5.1.1
+paramiko==2.7.2
+python-vnc-client==0.1.0
+pyyaml==5.4.1
+cryptography==3.4.7
+python-dotenv==0.19.0 

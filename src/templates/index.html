@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Server Bot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .vnc-container {
+            width: 100%;
+            height: 80vh;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Linux Server Bot</span>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Status Server
+                    </div>
+                    <div class="card-body">
+                        <div id="server-status">
+                            <p>SSH Status: <span id="ssh-status">Disconnected</span></p>
+                            <p>VNC Status: <span id="vnc-status">Not Running</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Kontrol Server
+                    </div>
+                    <div class="card-body">
+                        <button id="start-server" class="btn btn-primary">Start Server</button>
+                        <button id="stop-server" class="btn btn-danger">Stop Server</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        VNC Viewer
+                    </div>
+                    <div class="card-body">
+                        <div id="vnc-viewer" class="vnc-container">
+                            <!-- VNC viewer will be embedded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        const socket = io();
+        
+        document.getElementById('start-server').addEventListener('click', () => {
+            socket.emit('start_server');
+        });
+
+        document.getElementById('stop-server').addEventListener('click', () => {
+            socket.emit('stop_server');
+        });
+
+        socket.on('server_status', (data) => {
+            document.getElementById('ssh-status').textContent = data.ssh;
+            document.getElementById('vnc-status').textContent = data.vnc;
+        });
+    </script>
+</body>
+</html> 

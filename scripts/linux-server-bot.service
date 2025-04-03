@@ -1,0 +1,14 @@
+[Unit]
+Description=Linux Server Bot Service
+After=network.target
+
+[Service]
+Type=simple
+User=%USER%
+WorkingDirectory=/path/to/linux-server-bot
+ExecStart=/path/to/linux-server-bot/venv/bin/python src/server_bot.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 
