@@ -1,142 +1,115 @@
-# H4Des-BOT
+# 🚀 H4Des-BOT
 
-Bot untuk mengubah sistem Linux menjadi server yang dapat dikontrol secara remote dengan GUI Gnome.
+<div align="center">
+  <img src="assets/images/logo.png" alt="H4Des-BOT Logo" width="200"/>
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
+  [![GitHub Stars](https://img.shields.io/github/stars/ShiroNeko1001/H4Des-BOT.svg?style=social)](https://github.com/ShiroNeko1001/H4Des-BOT/stargazers)
+  [![GitHub Forks](https://img.shields.io/github/forks/ShiroNeko1001/H4Des-BOT.svg?style=social)](https://github.com/ShiroNeko1001/H4Des-BOT/network/members)
+</div>
 
-![H4Des-BOT Logo](assets/images/logo.png)
+## 📝 Deskripsi
 
-## 🚀 Fitur Utama
+H4Des-BOT adalah solusi otomatis untuk mengubah sistem Linux menjadi server yang dapat dikontrol secara remote dengan GUI Gnome. Dengan fitur keamanan terintegrasi dan monitoring real-time, H4Des-BOT memudahkan manajemen server Linux Anda.
 
-- 🔒 SSH remote access dengan keamanan tinggi
-- 🖥️ VNC untuk GUI remote dengan Gnome
-- 🌐 Antarmuka web untuk kontrol
-- 🔐 Keamanan terintegrasi (Firewall, Fail2ban)
-- 💾 Backup otomatis harian
-- 🔄 Update otomatis
-- 📊 Monitoring sistem real-time
-- 🛡️ SSL/TLS support
+## ✨ Fitur Utama
 
-## 📋 Persyaratan Sistem
+<div align="center">
+  <table>
+    <tr>
+      <td>🔒 Remote Access</td>
+      <td>SSH & VNC dengan keamanan tinggi</td>
+    </tr>
+    <tr>
+      <td>🖥️ GUI</td>
+      <td>Gnome Desktop Environment</td>
+    </tr>
+    <tr>
+      <td>🌐 Web Interface</td>
+      <td>Kontrol melalui browser</td>
+    </tr>
+    <tr>
+      <td>🔐 Security</td>
+      <td>Firewall, Fail2ban, SSL/TLS</td>
+    </tr>
+    <tr>
+      <td>💾 Backup</td>
+      <td>Backup otomatis harian</td>
+    </tr>
+    <tr>
+      <td>📊 Monitoring</td>
+      <td>Monitoring sistem real-time</td>
+    </tr>
+  </table>
+</div>
 
-- Linux (Ubuntu/Debian)
-- Python 3.7+
-- Akses root/sudo
-- Koneksi internet
-- RAM minimal 2GB
-- Storage minimal 10GB
+## 🚀 Quick Start
 
-## 🛠️ Instalasi
-
-1. Clone repositori:
 ```bash
+# Clone repository
 git clone https://github.com/ShiroNeko1001/H4Des-BOT.git
 cd H4Des-BOT
-```
 
-2. Jalankan script instalasi:
-```bash
+# Install dependencies
 sudo ./scripts/setup.sh
-```
 
-3. Konfigurasi awal:
-```bash
-# Buat password VNC
+# Configure VNC
 vncpasswd
-
-# Mulai VNC server
 vncserver :1 -geometry 1920x1080
 ```
 
-## ⚙️ Konfigurasi
+## 📚 Dokumentasi
 
-Edit file `config/config.yaml`:
-```yaml
-server:
-  host: 0.0.0.0
-  port: 5000
+- [📖 Panduan Instalasi](docs/installation/README.md)
+- [💻 Panduan Penggunaan](docs/usage/README.md)
+- [⚙️ Konfigurasi](docs/configuration/README.md)
+- [🔧 Development](docs/development/README.md)
 
-ssh:
-  username: your_username
-  password: your_password
-
-vnc:
-  password: your_vnc_password
-```
-
-## 💻 Penggunaan
-
-1. Akses Web Interface:
-   - Buka: `http://localhost:5000`
-   - Atau: `http://[IP_SERVER]:5000`
-
-2. Akses VNC:
-   - Host: `[IP_SERVER]:1`
-   - Password: (password VNC yang dibuat)
-
-3. Monitoring Sistem:
-```bash
-./scripts/system_status.sh
-```
-
-## 🔒 Keamanan
-
-- SSH dengan autentikasi key
-- Firewall dengan UFW
-- Fail2ban untuk proteksi brute force
-- Backup otomatis harian
-- Update otomatis
-- Enkripsi SSL/TLS
-
-## 📦 Struktur Proyek
+## 🏗️ Struktur Proyek
 
 ```
 H4Des-BOT/
-├── src/                    # Source code utama
-├── scripts/               # Script instalasi dan maintenance
-├── config/                # File konfigurasi
-├── docs/                  # Dokumentasi
-├── assets/               # Gambar dan icon
-├── tests/                # Unit test
-├── logs/                 # Log file
+├── src/                    # Source code
+│   ├── core/              # Core functionality
+│   ├── utils/             # Utility functions
+│   ├── api/               # API endpoints
+│   └── web/               # Web interface
+├── scripts/               # Scripts
+│   ├── setup.sh          # Installation script
+│   ├── update.sh         # Update script
+│   └── system_status.sh  # Monitoring script
+├── config/                # Configuration
+│   ├── default/          # Default configs
+│   └── production/       # Production configs
+├── docs/                  # Documentation
+│   ├── installation/     # Installation guides
+│   ├── usage/            # Usage guides
+│   ├── configuration/    # Configuration guides
+│   └── development/      # Development guides
+├── tests/                # Tests
+│   ├── unit/            # Unit tests
+│   └── integration/     # Integration tests
+├── assets/               # Assets
+│   ├── images/          # Images
+│   └── icons/           # Icons
+├── logs/                 # Log files
 └── backups/              # Backup data
 ```
 
-## 🔄 Maintenance
+## 🛠️ Teknologi
 
-1. Update sistem:
-```bash
-./scripts/update.sh
-```
-
-2. Backup manual:
-```bash
-./scripts/backup.sh
-```
-
-3. Monitoring:
-```bash
-./scripts/system_status.sh
-```
-
-## 🐛 Troubleshooting
-
-1. Service gagal start:
-```bash
-sudo systemctl status linux-server-bot
-sudo journalctl -u linux-server-bot
-```
-
-2. VNC bermasalah:
-```bash
-vncserver -kill :1
-vncserver :1
-```
-
-3. Lihat logs:
-```bash
-tail -f logs/server.log
-```
+- Python 3.7+
+- Flask
+- VNC Server
+- SSH
+- UFW
+- Fail2ban
+- Gnome Desktop
 
 ## 🤝 Kontribusi
+
+Kami menyambut kontribusi! Silakan lihat [CONTRIBUTING.md](CONTRIBUTING.md) untuk panduan kontribusi.
 
 1. Fork repository
 2. Buat branch baru (`git checkout -b fitur-baru`)
@@ -146,12 +119,13 @@ tail -f logs/server.log
 
 ## 📝 Lisensi
 
-MIT License
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 
 ## 📞 Kontak
 
 - Email: shironeko1001@gmail.com
 - GitHub: [ShiroNeko1001](https://github.com/ShiroNeko1001)
+- Issues: [GitHub Issues](https://github.com/ShiroNeko1001/H4Des-BOT/issues)
 
 ---
 
